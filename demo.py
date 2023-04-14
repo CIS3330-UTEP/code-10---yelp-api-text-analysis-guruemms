@@ -5,8 +5,8 @@ api_key = 'NclPqNJ86OBRq0Y5cfLU5ch7BxPop6oHLJ7LwzJCqPqFAvmPaM2jxRa-qcNPDhKmZXqME
 yelp_api = YelpAPI(api_key)
 
 #search query
-search_term = "pizza"
-search_location = "Chicago, IL"
+search_term = "coffee"
+search_location = "El Paso, TX"
 search_sort_by = "rating" #best_match, rating, review_count, distance
 search_limit = 20
 search_results = yelp_api.search_query(term=search_term,location = search_location, sort_by = search_sort_by, limit = search_limit)
@@ -28,6 +28,8 @@ print(reviews_result)
 for review in reviews_result['reviews']:
     print(review)
     print("\n\n")
+reviews_df = pd.DataFrame.from_dict(reviews_result)
+print(reviews_df['text'])
 '''
 import nltk
 from nltk.corpus import stopwords 
