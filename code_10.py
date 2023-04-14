@@ -20,18 +20,18 @@ search_results = yelp_api.search_query(term=search_term,location = search_locati
 
 id_for_reviews = ("proof-and-press-el-paso")
 reviews_result = yelp_api.reviews_query(id = id_for_reviews)
-print(reviews_result)
-#for review in reviews_result['reviews']:
-#    print(review)
-#    print("\n\n")
-reviews_df = pd.DataFrame.from_dict(reviews_result)
-print(reviews_df['text'])
+reviews_df = pd.DataFrame.from_dict(reviews_result['reviews'])
+for review in reviews_df['text']:
+    sentiment_score = analyzer.polarity_scores(review)
+    print(review)
+    print(sentiment_score)
+    print('\n')
 
 id_for_reviews = ("sand-dust-coffee-el-paso")
 reviews_result = yelp_api.reviews_query(id = id_for_reviews)
-print(reviews_result)
-#for review in reviews_result['reviews']:
-#   print(review)
-#    print("\n\n")
-reviews_df = pd.DataFrame.from_dict(reviews_result)
-print(reviews_df['text'])
+reviews_df = pd.DataFrame.from_dict(reviews_result['reviews'])
+for review in reviews_df['text']:
+    sentiment_score = analyzer.polarity_scores(review)
+    print(review)
+    print(sentiment_score)
+    print('\n')
